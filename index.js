@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 
 inquirer
-    .createPromptModule([
+    .prompt([
         {
             type: 'input',
             message: 'What is your project title?',
@@ -42,5 +42,48 @@ inquirer
             message: 'What is a good email for people to send questions to you?',
             name:'email',
         },
-
     ])
+    .then((response) =>
+        console.log(`# ${response.question}
+
+            ## Description
+            
+            ${response.description}
+            
+            ## Table of Contents (Optional)
+            
+            If your README is long, add a table of contents to make it easy for users to find what they need.
+            
+            - [Installation](#installation)
+            - [Usage](#usage)
+            - [Credits](#credits)
+            - [License](#license)
+            
+            ## Installation
+
+            ${response.installation}
+            
+            ## Usage
+            
+            ${response.usage}
+
+            ## Credits
+
+            ${response.contributions}
+            
+            ## License
+            
+            ${response.license}
+
+            ## Tests
+            
+            ${response.tests}
+
+            ## Questions
+
+            For any questions please feel free to reach out to me at  ${response.email}
+            
+            `
+        )
+            
+    )
