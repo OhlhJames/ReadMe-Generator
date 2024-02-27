@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 inquirer
     .prompt([
@@ -44,7 +45,7 @@ inquirer
         },
     ])
     .then((response) =>
-        console.log(`# ${response.question}
+        fs.appendFile('README.md',`# ${response.question}
 
             ## Description
             
@@ -81,9 +82,10 @@ inquirer
 
             ## Questions
 
-            For any questions please feel free to reach out to me at  ${response.email}
+            For any questions please feel free to reach out to me at:  
+            ${response.email}
             
-            `
+            `,(err) =>
+                err ? console.error(err) : console.log('README Added!')      
         )
-            
     )
