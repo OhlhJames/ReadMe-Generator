@@ -45,47 +45,46 @@ inquirer
         },
     ])
     .then((response) =>
-        fs.appendFile('README.md',`# ${response.question}
+        fs.appendFile('README.md',
+`# ${response.title}
 
-            ## Description
+# Description
             
-            ${response.description}
+${response.description}
             
-            ## Table of Contents (Optional)
+# Table of Contents 
             
-            If your README is long, add a table of contents to make it easy for users to find what they need.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
             
-            - [Installation](#installation)
-            - [Usage](#usage)
-            - [Credits](#credits)
-            - [License](#license)
-            
-            ## Installation
+# Installation
 
-            ${response.installation}
+${response.installation}
             
-            ## Usage
+# Usage
             
-            ${response.usage}
+${response.usage}
 
-            ## Credits
+# Credits
 
-            ${response.contributions}
+${response.contributions}
             
-            ## License
+# License
             
-            ${response.license}
+${response.license}
 
-            ## Tests
+# Tests
             
-            ${response.tests}
+${response.tests}
 
-            ## Questions
+# Questions
 
-            For any questions please feel free to reach out to me at:  
-            ${response.email}
+For any questions please feel free to reach out to me at:  
+${response.email}
             
-            `,(err) =>
-                err ? console.error(err) : console.log('README Added!')      
+        `,(err) =>
+            err ? console.error(err) : console.log('README Added!')      
         )
     )
