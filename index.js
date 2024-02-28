@@ -61,7 +61,7 @@ ${response.description}
             
 # Installation
 
-${response.installation}
+${response.installations}
             
 # Usage
             
