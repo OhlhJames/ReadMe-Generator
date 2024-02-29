@@ -1,6 +1,8 @@
+// These lines are so that the javascript can access the Filesystem and Inquirer packages
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// This uses the inquirer package to set up a prompt to ask the user questions so that the README can be generated
 inquirer
     .prompt([
         {
@@ -44,6 +46,7 @@ inquirer
             name:'email',
         },
     ])
+// This uses the responses of the inquirer prompts to append a README file with the appropriate text content provided by users
     .then((response) =>
         fs.appendFile('README.md',
 `# ${response.title}
@@ -83,8 +86,9 @@ ${response.tests}
 
 For any questions please feel free to reach out to me at:  
 ${response.email}
-            
+
         `,(err) =>
-            err ? console.error(err) : console.log('README Added!')      
+            err ? console.error(err) : console.log('README Added!')
+// This last line will let users know if there is an error while running this program, and if no errors will console log that the README was added    
         )
     )
